@@ -1,138 +1,383 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+/* Reset box-sizing to border-box for all elements */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition: .3s;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Global typography */
+body {
+    font-family: 'Roboto', sans-serif; /* استخدم خط روبوتو لتحسين مظهر النصوص */
+    font-size: 18px; /* زيادة حجم الخط الأساسي */
+    line-height: 1.6; /* تحسين تباعد الأسطر */
+    background-color: rgb(255, 240, 228); /* لون خلفية الصفحة */
+    color: rgb(97, 84, 47); /* لون النص الأساسي */
+}
+
+/* Basic styling for links */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Container styles */
+.container {
+    max-width: 1200px; /* Adjust max-width as needed */
+    margin: 0 auto; /* Center align the container */
+}
+
+/* Section title styles */
+.section-title {
+    text-align: center;
+    font-size: 36px; /* زيادة حجم خط العنوان */
+    color: rgb(97, 84, 47); /* لون النص الأساسي */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9); /* ظل النص */
+    margin-top: 60px;
+    margin-bottom: 40px;
+}
+
+/* Section styles */
+section.a {
+    background-color: #83c8ab30; /* لون الخلفية الفاتحة للأقسام */
+}
+
+section {
+    padding: 1px;
+    margin-top: 10px;
+}
+
+/* Navigation bar styles */
+nav {
+    width: 80%;
+    border-radius: 8px;
+    background-color: #4d6655; /* لون الخلفية للشريط العلوي */
+    margin: 10px auto;
+    box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.174);
+    display: flex;
+    justify-content: center; /* جعل عناصر nav في الوسط */
+}
+
+nav .container {
+    width: 100%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav .logo {
+    position: relative;
+}
+
+nav .logo img {
+    height: 80px;
+}
+
+nav .logo span {
+    font-size: 22px;
+    position: absolute;
+    left: 43px;
+    top: 40px;
+}
+
+.navigation-bar {
+    padding-right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.navigation-bar .links {
+    display: flex;
+    gap: 2px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 3px -2px rgb(0 64 0 / 35%);
+}
+
+.navigation-bar .links a {
+    background-color: #80BCA3;
+    display: block;
+    padding: 10px 20px;
+    transition: 0.3s;
+}
+
+.navigation-bar .links a:hover {
+    background-color: #649782;
+    transform: scale(95%);
+    border-radius: 8px;
+}
+
+.navigation-bar .profile {
+    height: 30px;
+    position: relative;
+}
+
+.navigation-bar .profile-image {
+    width: 30px;
+    border-radius: 50%;
+    transition: 0.2s;
+}
+
+.navigation-bar .profile-image:hover {
+    box-shadow: 0 0 4px 0px rgba(0, 47, 12, 0.482);
+    transform: scale(110%);
+}
+
+.menu {
+    display: none;
+    width: 30px;
+    height: 30px;
+    position: relative;
+}
+
+.menu img {
+    width: 100%;
+}
+
+@media(max-width:756px) {
+    .navigation-bar .links {
+        display: none;
+    }
+    .menu {
+        display: block;
+    }
+}
+
+.mobile-links {
+    position: absolute;
+    z-index: 5;
+    top: 100%;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.491);
+}
+
+.mobile-links a {
+    display: block;
+    width: 170px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    background-color: #669b85;
+    transition: 0.3s;
+}
+
+.mobile-links a:hover {
+    padding-left: 25px;
+    color: #92cab3;
+}
+
+.menu:hover .mobile-links {
+    visibility: visible;
+    opacity: 1;
+}
+
+.profile > .profile-links {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 11;
+    visibility: hidden;
+    opacity: .5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-links a {
+    display: block;
+    overflow: hidden;
+    text-wrap: nowrap;
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: 50px;
+    background-color: #649782b6;
+    transition: .3s;
+    width: fit-content;
+}
+
+.profile:hover > .profile-links {
+    top: 105%;
+    visibility: visible;
+    opacity: 1;
+}
+
+.profile-links a:hover {
+    background-color: #81c5a9;
+}
+
+/* Footer styles */
+.footer {
+    margin-top: 100px;
+    background: #333;
+    color: #fff;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    padding: 10px;
+}
+
+.footer-section h3 {
+    font-size: 20px; /* زيادة حجم خط العناوين في الفوتر */
+    margin-bottom: 10px;
+}
+
+.footer-section p, .footer-section ul, .footer-section a {
+    font-size: 16px; /* زيادة حجم الخط للنصوص في الفوتر */
+    line-height: 1.6;
+}
+
+.footer-section a {
+    color: #00ff7b;
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section .social-icons a {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.footer-section .social-icons img {
+    width: 20px;
+    height: 20px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 10px;
+    background: #222;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Recolte section styles */
+.recolte {
+    position: relative;
+    width: 80%;
+    height: 300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.recolte-etapes {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.recolte img {
+    width: 100%;
+    filter: brightness(70%);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.662);
+    border-radius: 8px; /* تطبيق border-radius على الصور */
+}
+
+.recolte-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 5px -6px rgba(0, 0, 0, 0.251);
+    padding: 20px;
+}
+
+.recolte-flex img {
+    flex-basis: 40%;
+    width: 200px;
+    height: 250px;
+    border-radius: 8px; /* تطبيق border-radius على الصور داخل .recolte-flex */
+}
+
+.recolte-flex .text {
+    flex-basis: 40%;
+}
+
+.recolte-flex h2 {
+    font-size: 22px; /* زيادة حجم خط العناوين داخل .recolte-flex */
+    font-weight: bolder;
+    margin-bottom: 20px;
+}
+
+.recolte-flex p {
+    font-size: 18px; /* زيادة حجم الخط للنصوص داخل .recolte-flex */
+}
+
+@media(max-width:900px) {
+    .recolte-flex .text {
+        flex-basis: 55%;
+    }
+}
+
+@media(max-width:667px) {
+    .recolte-flex {
+        flex-direction: column;
+    }
     
-</head>
-<body>
-    <nav>
-        <div class="container">
-            <a class="logo" href="/">
-                <img src="images/logo.png" alt="">
-                <span>Olea</span>
-            </a>
-            <div class="navigation-bar">
-                <div class="menu">
-                    <img  src="images/menuIcon.png" alt="">
-                    <ul class="mobile-links">
-                        <li><a href="/">accueil</a></li>
-                        <li><a href="/stades">culture</a></li>
-                        <li><a href="/recolte">recolte</a></li>
-                        <li><a href="#footer">contactez-nous</a></li>
-                    </ul>
-                </div>
-                <ul class="links">
-                    <li><a href="/">accueil</a></li>
-                    <li><a href="/stades">culture</a></li>
-                    <li><a href="/recolte">recolte</a></li>
-                    <li><a href="#footer">Contactez-nous</a></li>
-                </ul>
+    .recolte-flex .text {
+        text-align: center;
+        order: 1;
+    }
+    
+    .recolte-flex img {
+        order: 0;
+    }
+}
 
-                <span href="" class="profile">
-                    <img src="images/profile.png" alt="profile" class="profile-image">
-                    <div class="profile-links">
-                        <a href="/logout" class="logout">Déconnecter</a>
-                    <% if (user && user.role === 'admin') { %>
-                        <a href="/manage-agenda" class="manage">Gerer Agenda</a>
-                    <% } %>
-                    </div>
-                </span>
-                
-            </div>
-        </div>
-    </nav>
-    <main>
-        <div class="recolte" >    
-            <img src="images/recolte.webp" alt="recolte" > 
-        </div>
-            <div class="recolte-etapes">
-                <div class="recolte-flex">
-                    <img src="images/1.jpg" alt="" style="border-radius:  0px 50px; ">
-                    <div class="text">
-                        <h2>Pourquoi Une analyse du sol ?</h2>
-                        <p>Pour optimiser les rendements, il est crucial d'analyser le sol pour (Phosphore Potassium  Matière organique ..) afin de compléter les nutriments avec des engrais adaptés.
-                        </div>
-                </div>
-                <div class="recolte-flex">
-                    <div class="text">
-                        <h2>L’échantillon du sol</h2>
-                        <p>Un échantillon de sol (800 g à 1 kg) est composé de prélèvements multiples sur un terrain homogène (≤ 2 ha) ou distincts par type de sol pour les terrains hétérogènes, réalisés au hasard, en diagonale ou en zigzag.</p>
-                    </div>
-                    <img src="images/recolte2.jpg" style="border-radius: 200px 50px;" >
-                </div>
+.recolte-etapes h2, h3 {
+    color: #264e26;
+}
 
-                <div class="recolte-flex">
-                    <img src="images/recolte3.jpg" style="border-radius:  0px 50px;">
-                    <div class="text">
-                        <h2>profondeur des prélèvements</h2>
-                        <p>La profondeur des prélèvements de sol doit correspondre au système racinaire : 0-30 cm pour les cultures annuelles et 30 cm et 60 cm pour les cultures pérennes, avec des analyses séparées pour chaque profondeur.</p>
-                    </div>
-                </div>
+.recolte-etapes h3, .transformation-p {
+    text-align: center;
+}
 
-
-                
-                <div class="recolte-flex">
-                    <div class="text">
-                        <h2> Choisir le moment approprié</h2>
-                        <p id="p5"> Échantillonner avant la plantation ou pendant la croissance active des cultures.</p>
-                    </div>
-                    <img src="images/recolte4.jpg"style="border-radius:   50px 0px;" >
-                </div>
-                <div class="recolte-flex">
-                    <img id="img5" src="images/recolte5.webp"style="border-radius:  0px 50px;" >
-                    <div class="text">
-                        <h2>Mélanger et sous-échantillonner</h2>
-                        <p> Mélanger les échantillons pour chaque zone homogène et prendre un sous-échantillon représentatif.</p>
-                    </div>
-                    </div>
-                </div>
-                                
-                <div class="recolte-flex">
-                    <div class="text">
-                        <h2 style="color: #264e26;"> Envoyer les échantillons au laboratoire :
-                        </h2>
-                        <p id="p5"> Transmettre les échantillons rapidement pour éviter toute modification.
-
-                        </p>
-                    </div>
-                    <img src="images/8.webp"style="border-radius:   50px 0px;" >
-                </div>
-
-           
-
-
-          
-       
-    </main>
-    <footer class="footer" id="footer">
-        <div class="footer-content">
-            <div class="footer-section about">
-                <h3>About Us</h3>
-                <p>Nous nous engageons à fournir des informations complètes sur les olives et les meilleures pratiques pour leur entretien tout au long de l'année.</p>
-            </div>
-            
-            <div class="footer-section contact">
-                <h3>Contactez-nous</h3>
-                <p>Email: olea@olives.com</p>
-                <p>téléphone: +123-###-####</p>
-                <p>Adresse: 123 rue des olives,olive city.ol</p>
-            </div>
-            <div class="footer-section follow-us">
-                <h3>suivez-nous</h3>
-                <div class="social-icons">
-                    <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
-                    <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
-                    <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
-                    <a href="#"><img src="youtube-icon.png" alt="YouTube"></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>Copyright © 2023 Olea.org. All rights reserved.</p>
-        </div>
-    </footer>
-</body>
-</html>
+.recolte-etapes div.recolte-flex:nth-child(2n+1) {
+    background-color: rgba(215, 215, 15, 0.066);
+}
