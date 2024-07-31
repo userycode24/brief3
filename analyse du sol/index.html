@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a class="logo" href="/">
+                <img src="images/logo.png" alt="">
+                <span>Olea</span>
+            </a>
+            <div class="navigation-bar">
+                <div class="menu">
+                    <img  src="images/menuIcon.png" alt="">
+                    <ul class="mobile-links">
+                        <li><a href="/">accueil</a></li>
+                        <li><a href="/stades">culture</a></li>
+                        <li><a href="/recolte">recolte</a></li>
+                        <li><a href="#footer">contactez-nous</a></li>
+                    </ul>
+                </div>
+                <ul class="links">
+                    <li><a href="/">accueil</a></li>
+                    <li><a href="/stades">culture</a></li>
+                    <li><a href="/recolte">recolte</a></li>
+                    <li><a href="#footer">Contactez-nous</a></li>
+                </ul>
+
+                <span href="" class="profile">
+                    <img src="images/profile.png" alt="profile" class="profile-image">
+                    <div class="profile-links">
+                        <a href="/logout" class="logout">Déconnecter</a>
+                    <% if (user && user.role === 'admin') { %>
+                        <a href="/manage-agenda" class="manage">Gerer Agenda</a>
+                    <% } %>
+                    </div>
+                </span>
+                
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="recolte" >    
+            <img src="images/recolte.webp" alt="recolte" > 
+        </div>
+            <div class="recolte-etapes">
+                <div class="recolte-flex">
+                    <img src="images/1.jpg" alt="" style="border-radius:  0px 50px; ">
+                    <div class="text">
+                        <h2>Pourquoi Une analyse du sol ?</h2>
+                        <p>Pour optimiser les rendements, il est crucial d'analyser le sol pour (Phosphore Potassium  Matière organique ..) afin de compléter les nutriments avec des engrais adaptés.
+                        </div>
+                </div>
+                <div class="recolte-flex">
+                    <div class="text">
+                        <h2>L’échantillon du sol</h2>
+                        <p>Un échantillon de sol (800 g à 1 kg) est composé de prélèvements multiples sur un terrain homogène (≤ 2 ha) ou distincts par type de sol pour les terrains hétérogènes, réalisés au hasard, en diagonale ou en zigzag.</p>
+                    </div>
+                    <img src="images/recolte2.jpg"  >
+                </div>
+
+                <div class="recolte-flex">
+                    <img src="images/recolte3.jpg" style="border-radius:  0px 50px;" >
+                    <div class="text">
+                        <h2>profondeur des prélèvements</h2>
+                        <p>La profondeur des prélèvements de sol doit correspondre au système racinaire : 0-30 cm pour les cultures annuelles et 30 cm et 60 cm pour les cultures pérennes, avec des analyses séparées pour chaque profondeur.</p>
+                    </div>
+                </div>
+
+
+                
+                <div class="recolte-flex">
+                    <div class="text">
+                        <h2> Choisir le moment approprié</h2>
+                        <p id="p5"> Échantillonner avant la plantation ou pendant la croissance active des cultures.</p>
+                    </div>
+                    <img src="images/recolte4.jpg"style="border-radius:   50px 0px;" >
+                </div>
+                <div class="recolte-flex">
+                    <img id="img5" src="images/recolte5.webp"style="border-radius:  0px 50px;" >
+                    <div class="text">
+                        <h2>Mélanger et sous-échantillonner</h2>
+                        <p> Mélanger les échantillons pour chaque zone homogène et prendre un sous-échantillon représentatif.</p>
+                    </div>
+                    </div>
+                </div>
+                                
+                <div class="recolte-flex">
+                    <div class="text">
+                        <h2 style="color: #264e26;"> Envoyer les échantillons au laboratoire :
+                        </h2>
+                        <p id="p5"> Transmettre les échantillons rapidement pour éviter toute modification.
+
+                        </p>
+                    </div>
+                    <img src="images/8.webp"style="border-radius:   50px 0px;" >
+                </div>
+
+           
+
+
+          
+       
+    </main>
+    <footer class="footer" id="footer">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h3>About Us</h3>
+                <p>Nous nous engageons à fournir des informations complètes sur les olives et les meilleures pratiques pour leur entretien tout au long de l'année.</p>
+            </div>
+            
+            <div class="footer-section contact">
+                <h3>Contactez-nous</h3>
+                <p>Email: olea@olives.com</p>
+                <p>téléphone: +123-###-####</p>
+                <p>Adresse: 123 rue des olives,olive city.ol</p>
+            </div>
+            <div class="footer-section follow-us">
+                <h3>suivez-nous</h3>
+                <div class="social-icons">
+                    <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+                    <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
+                    <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+                    <a href="#"><img src="youtube-icon.png" alt="YouTube"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright © 2023 Olea.org. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
